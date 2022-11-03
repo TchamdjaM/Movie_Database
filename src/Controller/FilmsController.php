@@ -30,19 +30,7 @@ class FilmsController extends AbstractController
     }
 
     
-    /**
-     * @Route("/films/{id}/", name="app_films_film")
-     */
 
-    public function indiv(FilmsRepository $res, $id): Response
-    {
-        $films = $res->find($id);
-        return $this->render('films/film.html.twig', [
-            'controller_name' => 'FilmsController',
-            'films'          => $films
-      
-        ]);
-    }
 
 
     /**
@@ -91,6 +79,20 @@ class FilmsController extends AbstractController
                 'acteurs' => $acteurs
             ]);
         }
+    }
+
+    /**
+     * @Route("/films/{id}/", name="app_films_film")
+     */
+
+    public function indiv(FilmsRepository $res, $id): Response
+    {
+        $films = $res->find($id);
+        return $this->render('films/film.html.twig', [
+            'controller_name' => 'FilmsController',
+            'films'          => $films
+      
+        ]);
     }
 
     /**

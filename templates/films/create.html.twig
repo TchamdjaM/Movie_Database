@@ -5,31 +5,32 @@
 
 {% block body %}
 <form action="" method="POST">
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid grid-cols-2 gap-2"></br></br>
         <label for="nom">
             Nom :
         </label>
-        <input class="border border-gray-700" type="text" name="nom" id="nom" />
+        <input class="border border-gray-700" type="text" name="nom" id="nom" /></br></br>
 
         <label for="resume">
             Résumé :
         </label>
-        <textarea class="border border-gray-700" name="resume" id="resume"></textarea>
+        <textarea class="border border-gray-700" name="resume" id="resume"></textarea></br></br>
 
         <label for="release_date">
             Date de sortie :
         </label>
         <input class="border border-gray-700" type="date" step="1" min="1" name="release_date" id="release_date" />
+        </br></br>
 
         <label for="genre">
             Genre :
         </label>
-        <select class="border border-gray-700" name="genre" id="genre">
+        <select class="border border-gray-700" name="genre" id="genre"></br></br>
             <option value="" />
             {% for genre in genres %}
-                <option value="{{ genres.id }}">{{ genres.name }}</option>
+                <option value="{{ genre.id }}">{{ genre.nom }}</option>
             {% endfor %}
-        </select>
+        </select></br></br>
 
         <label for="acteur">
             Acteurs :
@@ -37,13 +38,13 @@
         <select class="border border-gray-700" name="acteur" id="acteur">
             <option value="" />
             {% for acteur in acteurs %}
-                <option value="{{ acteurs.id }}">{{ acteurs.name }}</option>
+                <option value="{{ acteur.id }}">{{ acteur.nom }}</option>
             {% endfor %}
-        </select>
+        </select></br></br>
 
         <div class="col-span-2 flex justify-around">
-            <button class="border border-gray-700 rounded-md px-4 py-1" type="reset">Annuler</button>
-            <button class="border border-gray-700 rounded-md px-4 py-1" type="submit">Enregistrer</button>
+            <button style="text-align: center;color: red;" type="reset">Annuler</button></br></br>
+            <button style="text-align: center;color: blue;" type="submit">Enregistrer</button>
         </div>
     </div>
 
