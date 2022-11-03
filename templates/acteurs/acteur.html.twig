@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un acteur{% endblock %}
+{% block pageTitle %}Un acteur{% endblock %}
+
+{% block body %}
+
+<h1 style="text-align: center;color: blue;">Fiche d'un acteur </h1> 
+
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de naissance</th>
+            <th>Date de décès</th>
+            <th>image</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            <td>{{ acteurs.id }}</td>
+            <td>{{ acteurs.nom }}</td>
+            <td>{{ acteurs.prenom }}</td>
+            <td>{{ acteurs.birthday|date("d/m/Y") }}</td>
+            <td>{{ acteurs.deathday|date("d/m/Y") }}</td>
+            <td>
+            {% if acteurs.image is not null %}
+                <img src="{{ acteurs.image }}" width="150" />
+                 {% endif %} 
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
+

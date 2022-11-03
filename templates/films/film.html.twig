@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un film{% endblock %}
+{% block pageTitle %}Un film{% endblock %}
+
+{% block body %}
+
+<h1 style="text-align: center;color: blue;">Fiche d'un film </h1> 
+
+</a>
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Résumé</th>
+            <th>Date de sortie </th>
+            <th>Affiche</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ films.id }}</td>
+            <td>{{ films.titre }}</td>
+            <td>{{ films.resume }}</td>
+            <td>{{ films.releaseDate|date("d/m/Y") }}</td>
+            <td>
+            {% if films.affiche is not null %}
+                <img src="{{ films.affiche }}" width="150" />
+                 {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
+

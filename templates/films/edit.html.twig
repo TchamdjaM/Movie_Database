@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de Film{% endblock %}
+{% block pageTitle %}Création de Film{% endblock %}
+
+{% block body %}
+<form action="" method="POST">
+    <div class="grid grid-cols-2 gap-2">
+
+        <label for="titre">
+            Titre :
+        </label>
+        <input class="border border-gray-700" type="text" name="titre" id="titre" value="{{ films.titre }}" />
+
+        <label for="resume">
+            Résumé :
+        </label>
+        <textarea class="border border-gray-700" name="resume" id="resume">{{ films.resume }}</textarea>
+        
+        <label for="release_date">
+            Date de sortie:
+        </label>
+        <textarea class="border border-gray-700" name="release_date" id="release_date">{{ filmd.release_date }}</textarea>
+
+        <label for="genres">
+            Genres :
+        </label>
+      <textarea class="border border-gray-700" name="genres" id="genres">{{ films.genres }}</textarea>
+        <div class="col-span-2 flex justify-around">
+            <button class="border border-gray-700 rounded-md px-4 py-1" type="reset">Annuler</button>
+            <button class="border border-gray-700 rounded-md px-4 py-1" type="submit">Enregistrer</button>
+        </div>
+    </div>
+
+</form>
+{% endblock %}

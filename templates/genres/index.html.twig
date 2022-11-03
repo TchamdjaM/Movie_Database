@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Genres{% endblock %}
+{% block pageTitle %}Liste des Genres{% endblock %}
+
+{% block body %}
+
+<h1 style="text-align: center; color: red; font-size: 50px;">Les Genres </h1> 
+
+<a href="{{ url('app_genres_create') }}">
+AJOUTER
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for genres in genres %}
+        <tr>
+            <td>{{genres.id }}</td>
+            <td>{{genres.nom }}</td>
+            <td>
+                <a href="{{ url('app_genres_edit', {'genres': genres.id}) }}">Modifier</a>
+                <a href="{{ url('app_genres_delete', {'genres': genres.id}) }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

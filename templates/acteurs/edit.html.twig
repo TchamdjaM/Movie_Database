@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un Acteur{% endblock %}
+{% block pageTitle %}Création d'un Acteur{% endblock %}
+
+{% block body %}
+<form action="" method="POST">
+    <div class="grid grid-cols-2 gap-2">
+
+        <label for="nom">
+            Nom :
+        </label>
+        <input class="border border-gray-700" type="text" name="nom" id="nom" value="{{ acteurs.nom }}" />
+
+         <label for="prenom">
+            prenom :
+        </label>
+        <input class="border border-gray-700" type="text" name="prenom" id="prenom" value="{{ acteurs.prenom }}" />
+
+        <label for="birthday">
+            Date de naissance:
+        </label>
+        <textarea class="border border-gray-700" name="birthday" id="birthday">{{ acteurs.birthday }}</textarea>
+
+        <label for="deathday">
+            Date de décès:
+        </label>
+        <textarea class="border border-gray-700" name="deathday" id="deathday">{{ acteurs.deathday }}</textarea>
+
+        <div class="col-span-2 flex justify-around">
+            <button class="border border-gray-700 rounded-md px-4 py-1" type="reset">Annuler</button>
+            <button class="border border-gray-700 rounded-md px-4 py-1" type="submit">Enregistrer</button>
+        </div>
+    </div>
+
+</form>
+{% endblock %}
