@@ -37,13 +37,18 @@ class ActeursController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             // Insertion en BDD
             $acteurs              = new Acteurs;
+
+            $image = $request->files->get('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move($this->getParameter('image_directory'),$image_name);
+
             $acteurs->setNom($request->request->get('nom'))
                 ->setPrenom($request->request->get('prenom'))
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', $request->request->get('birthday')))
                 ->setDeathday($request->request->get('deathday') != null 
                     ? \DateTime::createFromFormat('Y-m-d', $request->request->get('deathday'))
                     : null)
-                ->setImage($request->request->get('image'));
+                ->setimage($image_name);
 
             $manager->persist($acteurs);
             $manager->flush();
@@ -86,13 +91,18 @@ class ActeursController extends AbstractController
         if ($request->isMethod("POST")) {
             $manager = $this->getDoctrine()->getManager();
             // Insertion en BDD
+
+            $image = $request->files->get('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move($this->getParameter('image_directory'),$image_name);
+
             $acteurs->setNom($request->request->get('nom'))
                 ->setPrenom($request->request->get('prenom'))
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', $request->request->get('birthday')))
                 ->setDeathday($request->request->get('deathday') != null 
                     ? \DateTime::createFromFormat('Y-m-d', $request->request->get('deathday'))
                     : null)
-                ->setImage($request->request->get('image'));
+                ->setimage($image_name);
 
 
             $manager->flush();

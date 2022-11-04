@@ -43,10 +43,15 @@ class FilmsController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             // Insertion en BDD
             $films              = new Films;
+
+            $affiche = $request->files->get('affiche');
+            $affiche_name = $affiche->getClientOriginalName();
+            $affiche->move($this->getParameter('affiche_directory'),$affiche_name);
+
             $films->setTitre($request->request->get('titre'))
                 ->setResume($request->request->get('resume'))
                 ->setReleaseDate($request->request->get('release_date'))
-                ->setAffiche($request->request->get('affiche'));
+                ->setaffiche($affiche_name);
                 
 
             $genres = $this->getDoctrine()
@@ -104,10 +109,14 @@ class FilmsController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             // Insertion en BDD
 
+            $affiche = $request->files->get('affiche');
+            $affiche_name = $affiche->getClientOriginalName();
+            $affiche->move($this->getParameter('affiche_directory'),$affiche_name);
+
             $films->settitre($request->request->get('titre'))
             ->setresume($request->request->get('resume'))
             ->setReleaseDate($request->request->get('release_date'))
-            ->setAffiche($request->request->get('affiche'));
+            ->setaffiche($affiche_name);
 
              $genres = $this->getDoctrine()
                 ->getRepository(Genres::class)
