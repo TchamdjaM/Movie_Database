@@ -39,8 +39,10 @@ class ActeursController extends AbstractController
             $acteurs              = new Acteurs;
             $acteurs->setNom($request->request->get('nom'))
                 ->setPrenom($request->request->get('prenom'))
-                ->setBirthday($request->request->get('birthday'))
-                ->setDeathday($request->request->get('deathday'))
+                ->setBirthday(\DateTime::createFromFormat('Y-m-d', $request->request->get('birthday')))
+                ->setDeathday($request->request->get('deathday') != null 
+                    ? \DateTime::createFromFormat('Y-m-d', $request->request->get('deathday'))
+                    : null)
                 ->setImage($request->request->get('image'));
 
             $manager->persist($acteurs);
@@ -86,8 +88,10 @@ class ActeursController extends AbstractController
             // Insertion en BDD
             $acteurs->setNom($request->request->get('nom'))
                 ->setPrenom($request->request->get('prenom'))
-                ->setBirthday($request->request->get('birthday'))
-                ->setDeathday($request->request->get('deathday'))
+                ->setBirthday(\DateTime::createFromFormat('Y-m-d', $request->request->get('birthday')))
+                ->setDeathday($request->request->get('deathday') != null 
+                    ? \DateTime::createFromFormat('Y-m-d', $request->request->get('deathday'))
+                    : null)
                 ->setImage($request->request->get('image'));
 
 

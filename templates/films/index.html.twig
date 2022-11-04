@@ -38,7 +38,7 @@
             </td>
             <td> 
             {% for acteur in films.acteurs %}
-            <a href="{{ url('app_acteurs_acteur', {'id': acteur.id}) }}">{{ acteur.nom }}</a>
+            <a href="{{ url('app_acteurs_acteur', {'id': acteur.id}) }}">{{ acteur.prenom }} {{ acteur.nom }} ;</a>
             {% endfor %}
             </td>
             <td>{{ films.genres.nom }}</td>

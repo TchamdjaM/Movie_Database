@@ -28,7 +28,7 @@
         <tr>
             <td>{{ acteurs.id }}</td>
             <td><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}"> {{ acteurs.nom }}</a></td>
-            <td>{{ acteurs.prenom }}</td>
+            <td><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}">{{ acteurs.prenom }}</a></td>
             <td>{{ acteurs.birthday|date("d/m/Y") }}</td>
             <td>
             {% if acteurs.deathday is not null %}
