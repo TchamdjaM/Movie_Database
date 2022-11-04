@@ -5,30 +5,43 @@
 
 {% block body %}
 
-<h1 style="text-align: center;color: blue;">Fiche d'un film </h1> 
+<h1 style="text-align: center;color: blue;">Fiche d'un film </h1> </br> </br> 
 
 </a>
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Résumé</th>
-            <th>Date de sortie </th>
-            <th>Affiche</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Id</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Titre</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Résumé</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Date de sortie </th>
+            <th style="width: 300px; color: red; font-size: 20px;">Acteurs</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Genre</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Affiche</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>{{ films.id }}</td>
-            <td>{{ films.titre }}</td>
-            <td>{{ films.resume }}</td>
-            <td>{{ films.releaseDate|date("d/m/Y") }}</td>
-            <td>
-            {% if films.affiche is not null %}
-                <img src="{{ films.affiche }}" width="150" />
-                 {% endif %}
+            <td style="text-align: center; font-size: 20px;">{{ films.id }}</td>
+            <td style="text-align: center; font-size: 20px;">{{ films.titre }}</td>
+            <td style="text-align: center; font-size: 20px;">{{ films.resume }}</td>
+            <td style="text-align: center; font-size: 20px;">{{ films.releaseDate|date("d/m/Y") }}</td>
+            
+            <td style="text-align: center; font-size: 20px;"> 
+            {% for acteur in films.acteurs %}
+            <a href="{{ url('app_acteurs_acteur', {'id': acteur.id}) }}">{{ acteur.prenom }} {{ acteur.nom }},</a>
+            {% endfor %}
             </td>
+            <td style="text-align: center; font-size: 20px;">{{ films.genres.nom }}
+            </td>
+
+            <td style="text-align: center; font-size: 20px;">
+            {% if films.affiche is not null %}
+            <img src="{{asset("affiche/"~films.affiche) }}" width="150" />
+
+            {% endif %}
+            </td>
+        
         </tr>
     </tbody>
 </table>

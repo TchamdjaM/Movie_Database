@@ -50,20 +50,21 @@ class FilmsController extends AbstractController
 
             $films->setTitre($request->request->get('titre'))
                 ->setResume($request->request->get('resume'))
-                ->setReleaseDate($request->request->get('release_date'))
+                ->setReleaseDate(\DateTime::createFromFormat('Y-m-d', $request->request->get('release_date')))
                 ->setaffiche($affiche_name);
                 
 
             $genres = $this->getDoctrine()
                 ->getRepository(Genres::class)
-                ->find($request->request->get('genres'));
+                ->find($request->request->get('genre'));
             $films->setGenres($genres);
 
             $acteurs = $this->getDoctrine()
                 ->getRepository(Acteurs::class)
-                ->find($request->request->get('acteurs'));
+                ->find($request->request->get('acteur'));
             $films->addActeur($acteurs);
 
+  
             $manager->persist($films);
             $manager->flush();
 

@@ -5,30 +5,35 @@
 
 {% block body %}
 
-<h1 style="text-align: center;color: blue;">Fiche d'un acteur </h1> 
+ </br><h1 style="text-align: center;color: blue;">Fiche d'un acteur </h1> </br> </br> 
 
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de naissance</th>
-            <th>Date de décès</th>
-            <th>image</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Id</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Nom</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Prenom</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Date de naissance</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Date de décès</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Films</th>
+            <th style="width: 300px; color: red; font-size: 20px;">Image</th>
         </tr>
     </thead>
     <tbody>
     
         <tr>
-            <td>{{ acteurs.id }}</td>
-            <td>{{ acteurs.nom }}</td>
-            <td>{{ acteurs.prenom }}</td>
-            <td>{{ acteurs.birthday|date("d/m/Y") }}</td>
-            <td>{{ acteurs.deathday|date("d/m/Y") }}</td>
-            <td>
+            <td style="text-align: center;">{{ acteurs.id }}</td>
+            <td style="text-align: center;">{{ acteurs.nom }}</td>
+            <td style="text-align: center;">{{ acteurs.prenom }}</td>
+            <td style="text-align: center;">{{ acteurs.birthday|date("d/m/Y") }}</td>
+            <td style="text-align: center;">{{ acteurs.deathday|date("d/m/Y") }}</td>
+            <td style="text-align: center;"> 
+
+            </td>
+
+            <td style="text-align: center;">
             {% if acteurs.image is not null %}
-                <img src="{{ acteurs.image }}" width="150" />
+                <img src="{{ asset("image/"~acteurs.image) }}"/>
                  {% endif %} 
             </td>
         </tr>

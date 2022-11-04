@@ -4,12 +4,14 @@
 {% block pageTitle %}Création de Film{% endblock %}
 
 {% block body %}
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     <div class="grid grid-cols-2 gap-2"></br></br>
+
+
         <label for="nom">
-            Nom :
+            Titre :
         </label>
-        <input class="border border-gray-700" type="text" name="nom" id="nom" /></br></br>
+        <input class="border border-gray-700" type="text" name="titre" id="titre" /></br></br>
 
         <label for="resume">
             Résumé :
@@ -41,6 +43,11 @@
                 <option value="{{ acteur.id }}">{{ acteur.nom }}</option>
             {% endfor %}
         </select></br></br>
+
+        <label>
+        Affiche :
+        </label>
+        <input type="file" name="affiche" id="affiche"/></br></br>
 
         <div class="col-span-2 flex justify-around">
             <button style="text-align: center;color: red;" type="reset">Annuler</button></br></br>

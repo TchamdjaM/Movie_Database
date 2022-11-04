@@ -5,43 +5,42 @@
 
 {% block body %}
 
-<h1 style="text-align: center; color: red; font-size: 50px;">Les Acteurs </h1> 
+<h1 style="text-align: center; color: red; font-size: 40px;">LES ACTEURS </h1> 
 
-<a href="{{ url('app_acteurs_create') }}"
-    class="border border-gray-1000 rounded-md px-4 py-1">
-    Ajouter
-</a>
+<a style="border: 1px gray solid; font-size: 25px;" href="{{ url('app_acteurs_create') }}">
+    AJOUTER UN ACTEUR
+</a> </br></br>
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de naissance</th>
-            <th>Date de décès</th>
-            <th>image</th>
-            <th>Actions</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Id</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Nom</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Prenom</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Date de naissance</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Date de décès</th>
+            <th style="width: 300px; color: green; font-size: 20px;">image</th>
+            <th style="width: 300px; color: green; font-size: 20px;">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for acteurs in acteurs %}
         <tr>
-            <td>{{ acteurs.id }}</td>
-            <td><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}"> {{ acteurs.nom }}</a></td>
-            <td><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}">{{ acteurs.prenom }}</a></td>
-            <td>{{ acteurs.birthday|date("d/m/Y") }}</td>
-            <td>
+            <td style="text-align: center; font-size: 20px;">{{ acteurs.id }}</td>
+            <td style="text-align: center; font-size: 20px;"><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}"> {{ acteurs.nom }}</a></td>
+            <td style="text-align: center; font-size: 20px;"><a href="{{ url('app_acteurs_acteur', {'id': acteurs.id}) }}">{{ acteurs.prenom }}</a></td>
+            <td style="text-align: center; font-size: 20px;">{{ acteurs.birthday|date("d/m/Y") }}</td>
+            <td style="text-align: center; font-size: 20px;">
             {% if acteurs.deathday is not null %}
                 {{acteurs.deathday|date("d/m/Y")}}
             {% else %} null  
             {% endif %} 
             </td>    
-            <td>
+            <td style="text-align: center; font-size: 20px;">
             {% if acteurs.image is not null %}
-                <img src="{{ acteurs.image }}" width="150" />
-                 {% endif %} 
+                <img src="{{asset("image/"~acteurs.image) }}" width="150" />
+            {% endif %} 
             </td>
-            <td>
+            <td style="text-align: center; font-size: 20px;">
                 <a href="{{ url('app_acteurs_edit', {'acteurs': acteurs.id}) }}">Modifier</a>
                 <a href="{{ url('app_acteurs_delete', {'acteurs': acteurs.id}) }}">Supprimer</a>
             </td>

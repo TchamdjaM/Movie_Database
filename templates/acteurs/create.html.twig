@@ -4,7 +4,7 @@
 {% block pageTitle %}Création de l'acteur{% endblock %}
 
 {% block body %}
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     <div class="grid grid-cols-2 gap-2"></br></br>
         <label for="nom">
             Nom :
@@ -25,6 +25,11 @@
             Date de décès :
         </label>
         <input class="border border-gray-700" type="date" step="1" min="1" name="deathday" id="deathday" /></br></br>
+
+        <label>
+        Image :
+        </label>
+        <input type="file" name="image" id="image"/></br></br>
 
         <div class="col-span-2 flex justify-around">
             <button style="text-align: center;color: red;" type="reset">Annuler</button></br></br>

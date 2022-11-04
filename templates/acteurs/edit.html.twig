@@ -4,7 +4,8 @@
 {% block pageTitle %}Création d'un Acteur{% endblock %}
 
 {% block body %}
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
+
     <div class="grid grid-cols-2 gap-2">
 
         <label for="nom">
@@ -26,6 +27,11 @@
             Date de décès:
         </label>
         <textarea class="border border-gray-700" name="deathday" id="deathday">{{ acteurs.deathday }}</textarea>
+
+        <label>
+        Image :
+        </label>
+        <input type="file" name="image" id="image"/>
 
         <div class="col-span-2 flex justify-around">
             <button class="border border-gray-700 rounded-md px-4 py-1" type="reset">Annuler</button>

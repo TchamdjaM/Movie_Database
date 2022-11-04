@@ -4,7 +4,7 @@
 {% block pageTitle %}Création de Film{% endblock %}
 
 {% block body %}
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     <div class="grid grid-cols-2 gap-2">
 
         <label for="titre">
@@ -25,7 +25,13 @@
         <label for="genres">
             Genres :
         </label>
-      <textarea class="border border-gray-700" name="genres" id="genres">{{ films.genres }}</textarea>
+        <textarea class="border border-gray-700" name="genres" id="genres">{{ films.genres }}</textarea>
+
+        <label>
+        Affiche :
+        </label>
+        <input type="file" name="affiche" id="affiche"/>
+
         <div class="col-span-2 flex justify-around">
             <button class="border border-gray-700 rounded-md px-4 py-1" type="reset">Annuler</button>
             <button class="border border-gray-700 rounded-md px-4 py-1" type="submit">Enregistrer</button>

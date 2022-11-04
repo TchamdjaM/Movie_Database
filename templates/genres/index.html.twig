@@ -5,25 +5,25 @@
 
 {% block body %}
 
-<h1 style="text-align: center; color: red; font-size: 50px;">Les Genres </h1> 
+<h1 style="text-align: center; color: red; font-size: 40px;">LES GENRES </h1> 
 
-<a href="{{ url('app_genres_create') }}">
-AJOUTER
-</a>
+<a style="border: 1px gray solid; font-size: 25px;" href="{{ url('app_genres_create') }}">
+AJOUTER UN GENRE
+</a></br></br></br>
 <table>
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Actions</th>
+            <th style="width: 500px; color: green; font-size: 20px;">Id</th>
+            <th style="width: 500px; color: green; font-size: 20px;">Nom</th>
+            <th style="width: 500px; color: green; font-size: 20px;">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for genres in genres %}
         <tr>
-            <td>{{genres.id }}</td>
-            <td>{{genres.nom }}</td>
-            <td>
+            <td style="text-align: center; font-size: 20px;">{{genres.id }}</td>
+            <td style="text-align: center; font-size: 20px; height: 50px;">{{genres.nom }}</td>
+            <td style="text-align: center; font-size: 20px;">
                 <a href="{{ url('app_genres_edit', {'genres': genres.id}) }}">Modifier</a>
                 <a href="{{ url('app_genres_delete', {'genres': genres.id}) }}">Supprimer</a>
             </td>
